@@ -9,7 +9,7 @@ function init() {
         var txtDescripcion = document.querySelector("#txtDescripcion");
         var userdata = '{"txtVencimiento":' + txtVencimiento.value +
                 ',"txtDescripcion":' + txtDescripcion.value + '}';
-        regTarea(userdata);
+            regTarea(userdata);
     }
 
     function regTarea(data) {
