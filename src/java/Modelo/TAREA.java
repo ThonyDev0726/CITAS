@@ -14,7 +14,8 @@ public class TAREA {
     public String TA_IMPORTANCIA;
     public String TA_ESTADO;
 
-    public TAREA(Integer FK_USUARIO, String TA_FECHA_CREACION, String TA_FECHA_VENCIMIENTO, String TA_DESCRIPCION, String TA_IMPORTANCIA, String TA_ESTADO) {
+    public TAREA(Integer ID_TAREA, Integer FK_USUARIO, String TA_FECHA_CREACION, String TA_FECHA_VENCIMIENTO, String TA_DESCRIPCION, String TA_IMPORTANCIA, String TA_ESTADO) {
+        this.ID_TAREA = ID_TAREA;
         this.FK_USUARIO = FK_USUARIO;
         this.TA_FECHA_CREACION = TA_FECHA_CREACION;
         this.TA_FECHA_VENCIMIENTO = TA_FECHA_VENCIMIENTO;
@@ -22,9 +23,24 @@ public class TAREA {
         this.TA_IMPORTANCIA = TA_IMPORTANCIA;
         this.TA_ESTADO = TA_ESTADO;
     }
-    
+
 
     public TAREA() {
+    }
+
+    public TAREA(Integer FK_USUARIO, 
+            String TA_FECHA_CREACION, 
+            String TA_FECHA_VENCIMIENTO, 
+            String TA_DESCRIPCION, 
+            String TA_IMPORTANCIA, 
+            String TA_ESTADO) {
+        
+        this.FK_USUARIO = FK_USUARIO;
+        this.TA_FECHA_CREACION = TA_FECHA_CREACION;
+        this.TA_FECHA_VENCIMIENTO = TA_FECHA_VENCIMIENTO;
+        this.TA_DESCRIPCION = TA_DESCRIPCION;
+        this.TA_IMPORTANCIA = TA_IMPORTANCIA;
+        this.TA_ESTADO = TA_ESTADO;
     }
 
     public Integer getID_TAREA() {

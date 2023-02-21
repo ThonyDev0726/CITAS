@@ -19,7 +19,6 @@
 @import url(../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
 @import url(../vendor/metismenu/css/metisMenu.min.css);
 
-// formas de declarar variables
 :root {
     --primary: #886CC0;
     --secondary: #FFA7D7;

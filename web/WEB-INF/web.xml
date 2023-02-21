@@ -32,6 +32,10 @@
         <servlet-name>Tarea</servlet-name>
         <servlet-class>Controlador.Tarea</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActualizarTarea</servlet-name>
+        <servlet-class>Controlador.ActualizarTarea</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
@@ -72,6 +76,10 @@
     <servlet-mapping>
         <servlet-name>Tarea</servlet-name>
         <url-pattern>/Tarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarTarea</servlet-name>
+        <url-pattern>/ActualizarTarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -28,10 +28,10 @@ public class TAREA_DAO implements CRUD_TAREA {
     String LISTAR_PROGRESO = "CALL  SELECT_TAREA_EN_PROGRESO()";
     String LISTAR_POCO_IMPORTANTES = "CALL SELECT_TAREA_POCO_IMPORTANTES()";
     String LISTAR_REALIZADAS = "CALL SELECT_TAREA_REALIZADAS()";
-    String LISTAR_ID = "CALL SELEC_ID(?)";
+    String LISTAR_ID = "CALL SELECT_ID_TAREA(?)";
     String CREAR = "CALL INSERT_TAREA(?,?,?,?,?,?)";
-    String ACTUALIZAR = "CALL UPDATE_TAREA(?)";
-    String ELIMINAR = "CALL DELETE_TAREA()";
+    String ACTUALIZAR = "CALL UPDATE_TAREA(?,?,?,?,?,?,?)";
+    String ELIMINAR = "CALL DELETE_TAREA(?)";
     String ACTUALIZAR_ESTADO = "CALL UPDATE ESTADO()";
     String UPDATE_TAREA_IMPORTANCIA = "CALL UPDATE_TAREA_IMPORTANCIA(?,?)";
 
@@ -188,11 +188,13 @@ public class TAREA_DAO implements CRUD_TAREA {
         try {
             con = (Connection) cn.getConexion();
             coneccion = con.prepareCall(ACTUALIZAR);
-            coneccion.setInt(1, c.getID_TAREA());
-            coneccion.setString(2, c.getTA_FECHA_VENCIMIENTO());
-            coneccion.setString(3, c.getTA_DESCRIPCION());
-            coneccion.setString(4, c.getTA_IMPORTANCIA());
-            coneccion.setString(5, c.getTA_ESTADO());
+            coneccion.setInt(1, mp.getID_TAREA());
+            coneccion.setInt(2, mp.getFK_USUARIO());
+            coneccion.setString(3, mp.getTA_FECHA_CREACION());
+            coneccion.setString(4, mp.getTA_FECHA_VENCIMIENTO());
+            coneccion.setString(5, mp.getTA_DESCRIPCION());
+            coneccion.setString(6, mp.getTA_IMPORTANCIA());
+            coneccion.setString(7, mp.getTA_ESTADO());
             coneccion.execute();
         } catch (SQLException ex) {
             System.out.println("ERROR AL ACTUALIZAR LA TAREA");

@@ -18,6 +18,7 @@ public class Tarea extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = Logger.getLogger("LoginLogger");
     String REGISTRO = "Vista/Cliente/dashboard.jsp";
+    String EDITAR = "Vista/Cliente/tareaActualizar.jsp";
 //========================================================================================== VARIABLES GLOBALES     
     public Integer ID_TAREA;
     public Integer FK_USUARIO;
@@ -59,12 +60,24 @@ public class Tarea extends HttpServlet {
         String acceso = "";
         String action = request.getParameter("accion");
         switch (action) {
+            case "listar":
+                acceso = REGISTRO;
+                break;
             case "marcar-progreso":
                 dao.actualizaImportancia(Integer.parseInt(request.getParameter("idTarea")), "EN PROGRESO");
                 acceso = REGISTRO;
                 break;
             case "marcar-hecho":
                 dao.actualizaImportancia(Integer.parseInt(request.getParameter("idTarea")), "REALIZADO");
+                acceso = REGISTRO;
+                break;
+            case "editar":
+                request.setAttribute("idTarea", request.getParameter("idTarea"));
+                acceso = EDITAR;
+                break;
+            case "eliminar":
+                ID_TAREA = Integer.parseInt(request.getParameter("idTarea"));
+                dao.delete(ID_TAREA);
                 acceso = REGISTRO;
                 break;
             default:
